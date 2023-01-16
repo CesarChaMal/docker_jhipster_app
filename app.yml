@@ -1,0 +1,23 @@
+version: '2'
+services:
+    configurator-app:
+        image: configurator
+        environment:
+            - SPRING_PROFILES_ACTIVE=swagger,dev
+            - SPRING_DATASOURCE_URL=jdbc:mysql://configurator-mysql:3306/configurator?useUnicode=true&characterEncoding=utf8&useSSL=false&serverTimezone=UTC&autoReconnect=true&failOverReadOnly=false&maxReconnects=10
+            - JHIPSTER_SLEEP=10 # gives time for the database to boot before the application
+#            - JHIPSTER_SLEEP=20 # gives time for the database to boot before the application
+        ports:
+            - 7780:7780
+    configurator-mysql:
+        extends:
+            file: mysql.yml
+            service: configurator-mysql
+    configurator-sonar:
+        extends:
+            file: sonar.yml
+            service: configurator-sonar
+    configurator-jenkins:
+        extends:
+            file: jenkins.yml
+            service: configurator-jenkins

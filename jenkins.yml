@@ -1,0 +1,20 @@
+version: '2'
+services:
+  configurator-jenkins:
+    image: jenkins:latest
+    expose:
+        - 9010
+        - 9020
+    ports:
+        - 9010:7780
+        - 9020:50000
+    #  - 49001:7780
+    #  - 50000:50000
+    # uncomment for docker in docker
+    #privileged: true
+    #volumes:
+        # enable persistent volume (warning: make sure that the local jenkins_home folder is created)
+        #- ~/volumes/jenkins_home:/var/jenkins_home
+        # mount docker sock and binary for docker in docker (only works on linux)
+        #- /var/run/docker.sock:/var/run/docker.sock
+        #- /usr/bin/docker:/usr/bin/docker

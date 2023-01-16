@@ -1,0 +1,12 @@
+version: '2'
+services:
+    configurator-sonar:
+        image: sonarqube:6.5-alpine
+        expose:
+            - 9003
+            - 9004
+        ports:
+            - 9003:9000
+            - 9004:9092
+#            - 9000:9000
+#            - 9092:9092
