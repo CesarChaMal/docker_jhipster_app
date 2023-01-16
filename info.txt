@@ -1,0 +1,9 @@
+docker-compose -f app.yml build
+docker-compose -f mysql.yml build
+docker-compose -f jenkins.yml build
+docker-compose -f sonar.yml build
+
+docker-compose -f app.yml up
+docker-compose -f mysql.yml up
+docker-compose -f jenkins.yml up
+docker-compose -f sonar.yml up
